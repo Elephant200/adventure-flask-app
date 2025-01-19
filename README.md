@@ -35,3 +35,22 @@ This repo is a starter flask app for teaching purposes.
 
 5. Open your browser and navigate to [http://127.0.0.1:5000](http://127.0.0.1:5000) to see the app running locally.
    ![](images_for_readme/image-3.png)
+
+
+## Assignment
+
+- Write your own text adventure. Build each chapter as a route in the flask app.
+- Include at lease one win condition.
+- Include at least one failure condition.
+- Include at least one loop.
+
+### Bonus
+
+Add an item, such as a key, that is required to be found and carried to a particular room to unlock the ending.
+
+Some things you might investigate:
+- Flask's `g` special object
+- Query parameters
+- Sessions
+
+Think about the pros and cons to the different approaches.
