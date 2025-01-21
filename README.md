@@ -1,7 +1,10 @@
-# Starter Flask App
+# Starter Flask App - Choose Your Own Adventure
 
 This repo is a starter flask app for teaching purposes.
 
+This particular variant was made to demonstrate how to use flask to build a [Choose Your Own Adventure](https://en.wikipedia.org/wiki/Choose_Your_Own_Adventure) game.
+
+For a more basic introduction, see [Starter Flask App](https://github.com/x/starter-flask-app).
 
 ## How to Clone This Repo
 
