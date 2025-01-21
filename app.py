@@ -1,12 +1,6 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-CONFIG = {
-    "site_title": "Choose Your Own Adventure",
-    "site_name": "Choose Your Own Adventure",
-    "site_description": "A website where you can choose your own adventure!",
-}
-
 @app.route('/')
 def page_1():
     start_text = """
@@ -20,7 +14,7 @@ def page_1():
         {"text": "Pick up the sword", "route": "page_2"},
         {"text": "Call for your teacher's help", "route": "page_3"},
     ]
-    return render_template('page.html', content=start_text, choices=choices, config=CONFIG)
+    return render_template('page.html', content=start_text, choices=choices)
 
 @app.route('/page_2')
 def page_2():
@@ -36,7 +30,7 @@ def page_2():
         {"text": "Fight the monster", "route": "page_5"},
         {"text": "Run in search of help", "route": "page_3"},
     ]
-    return render_template('page.html', content=text, choices=choices, config=CONFIG)
+    return render_template('page.html', content=text, choices=choices)
 
 @app.route('/page_3')
 def page_3():
@@ -51,7 +45,7 @@ def page_3():
         {"text": "Hand over the sword", "route": "page_4"},
         {"text": "Refuse to give up the sword", "route": "page_2"},
     ]
-    return render_template('page.html', content=text, choices=choices, config=CONFIG)
+    return render_template('page.html', content=text, choices=choices)
 
 @app.route('/page_4')
 def page_4():
@@ -66,7 +60,7 @@ def page_4():
     choices = [
         {"text": "Start Over", "route": "/"},
     ]
-    return render_template('page.html', content=text, choices=choices, config=CONFIG)
+    return render_template('page.html', content=text, choices=choices)
 
 
 @app.route('/page_5')
@@ -83,4 +77,4 @@ def page_5():
     choices = [
         {"text": "Start Over", "route": "/"},
     ]
-    return render_template('page.html', content=text, choices=choices, config=CONFIG)
+    return render_template('page.html', content=text, choices=choices)
