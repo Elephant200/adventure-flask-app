@@ -1,0 +1,88 @@
+{
+    "keyPages": ["page4", "page5", "page7"],
+
+    "page1": {
+        "text": "As the sun sets, you and your herd wander through the dense forest when you stumble upon a hidden castle shrouded in vines. The castle gates are slightly ajar, as though inviting you to step inside. The air feels heavy with mystery, and a faint light flickers in one of the castle windows. What will you do?",
+        "choices": [
+            {"text": "Enter the castle cautiously", "route": "page2"},
+            {"text": "Circle the castle and look for another entrance", "route": "page3"}
+        ]
+    },
+    "page2": {
+        "text": "You push the gates open and step into the grand hallway. The walls are adorned with ancient tapestries of elephants in battle. A faint sound echoes from deeper within the castle, and you notice a strange glimmer under a fallen statue nearby. Do you investigate the glimmer or follow the sound?",
+        "choices": [
+            {"text": "Investigate the glimmer", "route": "page4"},
+            {"text": "Follow the sound", "route": "page5"}
+        ]
+    },
+    "page3": {
+        "text": "Circling the castle, you find a narrow tunnel partially hidden by foliage. Crawling through, you enter a small library. Dusty bookshelves line the walls, and a desk sits in the center of the room. On the desk lies an ornate key, glinting faintly. Do you take the key or leave it alone?",
+        "choices": [
+            {"text": "Take the key", "route": "key-collected"},
+            {"text": "Leave the key", "route": "page6"}
+        ]
+    },
+    "key-collected": {
+        "text": "You take the key, feeling its cool metal in your trunk. As you hold it, you sense a shift in the air—a soft whisper seems to echo, 'The path ahead is now unlocked.' You return to the main hall, where new possibilities await.",
+        "choices": [
+            {"text": "Return to the main hall", "route": "page2"}
+        ]
+    },
+    "page4": {
+        "text": "Beneath the fallen statue, you find an ancient inscription and a hollow compartment. The compartment is locked, and it appears to need a key. Do you continue searching for the key or abandon the compartment?",
+        "text_unlocked": "Beneath the fallen statue, you find an ancient inscription and a hollow compartment. The compartment is locked, but you have a key! You slide it in, and it clicks. You find a gold sculpture of an elephant. It's an old, ancient work of art! You're ecstatic. Your herd leaves the castle, pleased with its discovery.",
+        "choices": [
+            {"text": "Search for the key", "route": "page3"},
+            {"text": "Abandon the compartment", "route": "page5"}
+        ],
+        "choices_unlocked": [
+            {"text": "Start over", "route": "page1"}
+        ],
+        "ending": "You have won with a good ending."
+    },
+    "page5": {
+        "text": "You follow the sound deeper into the castle and come upon a grand ballroom. The floor is cracked, and a golden chalice sits on a pedestal in the center. As you approach, the chalice begins to glow faintly. Perhaps there’s more to this room than meets the eye.",
+        "text_unlocked": "You follow the sound deeper into the castle and come upon a grand ballroom. The floor is cracked, and a golden chalice sits on a pedestal in the center. As you approach, the chalice begins to glow brightly, revealing a hidden staircase beneath it.",
+        "choices": [
+            {"text": "Leave the ballroom", "route": "page6"},
+            {"text": "Go back the way you came", "route": "page2"}
+        ],
+        "choices_unlocked": [
+            {"text": "Use the key to unlock the staircase", "route": "page7"},
+            {"text": "Leave the ballroom", "route": "page6"}
+        ]
+    },
+    "page6": {
+        "text": "You wander the grand hallway endlessly. The castle seems to shift and twist, leading you in circles. A chilling laugh echoes through the corridors, and you start to wonder if there’s any way out. Do you try to leave or continue exploring?",
+        "choices": [
+            {"text": "Keep exploring", "route": "page6"},
+            {"text": "Try to leave the castle", "route": "page8"}
+        ]
+    },
+    "page7": {
+        "text": "The staircase stays stubbornly closed, but while trying, you see a small window that appears to lead to the outside. ",
+        "choices": [
+            {"text": "Go through the window to leave the castle", "route": "page3"},
+            {"text": "Keep exploring the castle", "route": "page6"}
+        ],
+        "text_unlocked": "With the key, the staircase unlocks, revealing a secret passage that leads to a hidden treasure room. Inside, you find ancient artifacts of your elephant ancestors: golden tusk rings, engraved ivory statues, and scrolls filled with forgotten knowledge. You’ve uncovered the castle’s greatest secrets.",
+        "choices_unlocked": [
+            {"text": "Start over", "route": "page1"}
+        ],
+        "ending": "You have won with a good ending."
+    },
+    "page8": {
+        "text": "As you leave the castle, poachers ambush you and your herd outside. Despite your efforts to defend yourself, their weapons are overwhelming. Tragically, you and your herd perish in the forest.",
+        "choices": [
+            {"text": "Start over", "route": "page1"}
+        ],
+        "ending": "You have lost with a bad ending."
+    },
+    "page9": {
+        "text": "You decide to hide in the castle, finding a dark alcove. The poachers search for hours but eventually leave, unable to find you. However, the ordeal leaves you shaken, and you decide to leave the castle behind, continuing your journey.",
+        "choices": [
+            {"text": "Start over", "route": "page1"}
+        ],
+        "ending": "You have won with a bittersweet ending."
+    }
+}

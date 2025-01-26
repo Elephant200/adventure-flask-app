@@ -1,40 +1,23 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "base.html" %}
 
-    <title>Choose Your Own Adventure</title>
+{% block title %}Story Page{% endblock %}
 
-    <!-- Import font from fonts.google.com -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+{% block content %}
+    <section>
+        <p class="story-text">{{ content|safe }}</p>
 
-    <!-- Import Pico.CSS Micro Framework -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.amber.min.css" />
-
-    <!-- Import our static/css/app.css stylesheet -->
-    <link rel="stylesheet" href={{ url_for('static', filename='css/app.css') }} />
-
-    <!-- Import our static/js/app.js JavaScript -->
-    <script defer src={{ url_for('static', filename='js/app.js' ) }}></script>
-  </head>
-
-  <body>
-    <main class="container">
-        <div class="vertical-center">
-            <article id="content">
-                {{ content|safe }}
-                <hr>
-                <ul>
-                {% for choice in choices %}
-                    <li><a href="{{ choice.route }}">{{ choice.text }}</a></li>
-                {% endfor %}
-                </ul>
-            </article>
-        </div>
-    </main>
-  </body>
-</html>
+        {% if ending %}
+          <div class="ending">
+            <strong>{{ ending }}</strong>
+          </div>
+        {% endif %}
+        
+        <ul class="choice-list">
+            {% for choice in choices %}
+                <li>
+                    <a href="{{ choice.route }}" class="button secondary link-button">{{ choice.text }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}
