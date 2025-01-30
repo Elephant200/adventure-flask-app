@@ -65,6 +65,12 @@ p.subheadline {
   color: #e0e0e0;
 }
 
+.error-message {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+}
+
 ul.choice-list {
   list-style: none;
   padding: 0;
@@ -103,8 +109,8 @@ footer {
 }
 
 .ending {
-  margin: 1rem 0;
-  padding: 1rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
   background-color: #4a90e2;
   color: white;
   font-size: 1.2rem;
