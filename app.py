@@ -49,7 +49,7 @@ def render_story():
         
         return render_template("page.html", content=content, choices=choices, ending=ending)
     else:
-        return handle_404(NotFound())
+        raise NotFound()
     
 
 @app.errorhandler(404)
