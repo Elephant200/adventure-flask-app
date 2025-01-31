@@ -5,8 +5,24 @@ run = "flask run"
 channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "flask run"]
+run = ["sh", "-c", "gunicorn app:app --bind 0.0.0.0:3000"]
+deploymentTarget = "cloudrun"
+
+[[ports]]
+localPort = 3000
+externalPort = 3000
 
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[workflows]
+runButton = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = 3947996
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "gunicorn app:app --bind 0.0.0.0:3000"
