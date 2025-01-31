@@ -130,6 +130,30 @@ footer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.link-title {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.link-title:hover {
+  color: #b0b0b0;
+}
+
+.link-footer {
+  text-decoration: none;
+  color: #b0b0b0;
+}
+
+.link-footer:hover {
+  color: #909090;
+}
+
+p.copyright {
+  font-size: 1rem;
+  text-align: center;
+  color: #b0b0b0;
+}
+
 @media (max-width: 768px) {
   .story-content {
     max-width: 90%;
