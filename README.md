@@ -20,7 +20,7 @@ This project is a Flask-based interactive adventure game where players make choi
    ```bash
    python app.py
    ```
-4. Open your browser and navigate to [http://0.0.0.0:5000](http://0.0.0.0:5000)
+4. Open your browser and navigate to [http://localhost:5000](http://localhost:5000)
 
 ## Game Structure
 
