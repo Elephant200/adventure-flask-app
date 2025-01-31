@@ -49,8 +49,8 @@
     },
   
     "6": {
-      "text": "You ignore the key and advance alone. Dimly glowing moss crawls over the walls, illuminating a fork in the path. The left route descends sharply, while the right slopes gently upward.",
-      "text_unlocked": "As you enter, you realize there's a small iron door hidden behind a cluster of moss. Without a key, it seems permanently shut. If only you had taken that key earlier...",
+      "text": "Dimly glowing moss crawls over the walls, illuminating a fork in the path. The left route descends sharply, while the right slopes gently upward.",
+      "text_unlocked": "As you enter, you realize there's a small iron door hidden behind a cluster of moss. The dim glow of the moss illuminates a fork in the path. The left route descends sharply, while the right slopes gently upward.",
       "choices": [
         {"text": "Touch the glowing moss", "route": "page?id=10"},
         {"text": "Take the left path downward", "route": "page?id=11"},
@@ -58,8 +58,9 @@
       ],
       "choices_unlocked": [
         {
-          "text": "Unlock the iron door behind the moss",
-          "route": "page?id=9"
+          {"text": "Investigate the iron door", "route": "page?id=9"},
+          {"text": "Take the left path downward", "route": "page?id=11"},
+          {"text": "Take the right path upward", "route": "page?id=12"}
         }
       ]
     },
