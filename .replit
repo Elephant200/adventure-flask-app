@@ -1,0 +1,12 @@
+modules = ["web", "python-3.12"]
+run = "flask run"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "flask run"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80
