@@ -1,5 +1,5 @@
 {
-    "keyPages": ["6", "9", "10", "15", "20", "25"],
+    "keyPages": ["3", "6", "9", "10", "15", "20", "25"],
   
     "1": {
       "text": "As the sun dips below the horizon, your herd quietly pads through the forest. Suddenly, you spot a hidden cave entrance tangled in vines. A faint glow pulses from deep within. Will you step inside?",
@@ -19,9 +19,13 @@
   
     "3": {
       "text": "Skirting around the cave, you find a low, half-hidden passage. Squeezing through, you enter a cramped chamber. A stone pedestal in the center holds a metal key that gleams in the torchlight. Do you take it?",
+      "text_unlocked": "Skirting around the cave, you find a low, half-hidden passage. Squeezing through, you enter a cramped chamber. It feels familiar... have you been here before? There is an empty stone pedestal in the center. Oh! This was where you found the key.",
       "choices": [
         {"text": "Take the key", "route": "page?id=key"},
         {"text": "Leave it there", "route": "page?id=6"}
+      ],
+      "choices_unlocked": [
+        {"text": "Proceed through the cave", "route": "page?id=6"}
       ]
     },
   
