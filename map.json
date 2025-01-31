@@ -57,11 +57,9 @@
         {"text": "Take the right path upward", "route": "page?id=12"}
       ],
       "choices_unlocked": [
-        {
-          {"text": "Investigate the iron door", "route": "page?id=9"},
-          {"text": "Take the left path downward", "route": "page?id=11"},
-          {"text": "Take the right path upward", "route": "page?id=12"}
-        }
+        {"text": "Investigate the iron door", "route": "page?id=9"},
+        {"text": "Take the left path downward", "route": "page?id=11"},
+        {"text": "Take the right path upward", "route": "page?id=12"}
       ]
     },
   
