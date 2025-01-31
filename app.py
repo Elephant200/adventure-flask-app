@@ -80,4 +80,4 @@ def handle_all_errors(e):
     return render_template("error.html", error_code=code, short_message=name, long_message=extended_message, debug_traceback=debug_traceback), code
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
