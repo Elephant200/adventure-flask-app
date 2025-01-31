@@ -1,5 +1,5 @@
 {
-    "keyPages": ["6", "9", "10", "15", "20", "25"],
+    "keyPages": ["3", "6", "9", "10", "15", "20", "25"],
   
     "1": {
       "text": "As the sun dips below the horizon, your herd quietly pads through the forest. Suddenly, you spot a hidden cave entrance tangled in vines. A faint glow pulses from deep within. Will you step inside?",
@@ -19,9 +19,13 @@
   
     "3": {
       "text": "Skirting around the cave, you find a low, half-hidden passage. Squeezing through, you enter a cramped chamber. A stone pedestal in the center holds a metal key that gleams in the torchlight. Do you take it?",
+      "text_unlocked": "Skirting around the cave, you find a low, half-hidden passage. Squeezing through, you enter a cramped chamber. It feels familiar... have you been here before? There is an empty stone pedestal in the center. Oh! This was where you found the key.",
       "choices": [
         {"text": "Take the key", "route": "page?id=key"},
         {"text": "Leave it there", "route": "page?id=6"}
+      ],
+      "choices_unlocked": [
+        {"text": "Proceed through the cave", "route": "page?id=6"}
       ]
     },
   
@@ -49,18 +53,17 @@
     },
   
     "6": {
-      "text": "You ignore the key and advance alone. Dimly glowing moss crawls over the walls, illuminating a fork in the path. The left route descends sharply, while the right slopes gently upward.",
-      "text_unlocked": "As you enter, you realize there's a small iron door hidden behind a cluster of moss. Without a key, it seems permanently shut. If only you had taken that key earlier...",
+      "text": "Dimly glowing moss crawls over the walls, illuminating a fork in the path. The left route descends sharply, while the right slopes gently upward.",
+      "text_unlocked": "As you enter, you realize there's a small iron door hidden behind a cluster of moss. The dim glow of the moss illuminates a fork in the path. The left route descends sharply, while the right slopes gently upward.",
       "choices": [
         {"text": "Touch the glowing moss", "route": "page?id=10"},
         {"text": "Take the left path downward", "route": "page?id=11"},
         {"text": "Take the right path upward", "route": "page?id=12"}
       ],
       "choices_unlocked": [
-        {
-          "text": "Unlock the iron door behind the moss",
-          "route": "page?id=9"
-        }
+        {"text": "Investigate the iron door", "route": "page?id=9"},
+        {"text": "Take the left path downward", "route": "page?id=11"},
+        {"text": "Take the right path upward", "route": "page?id=12"}
       ]
     },
   
