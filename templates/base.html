@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}{% endblock %}</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.amber.min.css" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" />
-    <script defer src="{{ url_for('static', filename='js/app.js') }}"></script>
-  </head>
+  <meta name="description" content="An interactive elephant story where your choices shape the adventure">
+  <meta name="keywords" content="interactive story, elephant adventure, choose your own adventure">
+  <meta name="author" content="Elephantonian">
 
-  <body>
-    <header class="container">
-      <h1 class="headline">The Elephant Story</h1>
-      <p class="subheadline">Embark on an unforgettable journey of elephant choices!</p>
-    </header>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Elephant Story - Interactive Adventure">
+  <meta property="og:description" content="An interactive elephant story where your choices shape the adventure">
+  <meta property="og:site_name" content="The Elephant Story">
 
-    <main class="container">
-      <article class="story-content">
-        {% block content %}{% endblock %}
-      </article>
-    </main>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Elephant Story - Interactive Adventure">
+  <meta name="twitter:description" content="An interactive elephant story where your choices shape the adventure">
 
-    <footer class="container">
-      <p>&copy; 2025 Interactive Story. Built for BIGDPS0204_D01_2025_1</p>
-    </footer>
-  </body>
+  <title>{% block title %}{% endblock %}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.amber.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" />
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+  <script defer src="{{ url_for('static', filename='js/app.js') }}"></script>
+</head>
+
+<body>
+  <header class="container">
+    <h1 class="headline"><a class="link-title" href="/">The Elephant Story</a></h1>
+    <p class="subheadline">Embark on an unforgettable journey of choices as an elephant!</p>
+  </header>
+
+  <main class="container">
+    <article class="story-content">
+      {% block content %}{% endblock %}
+    </article>
+  </main>
+
+  <footer class="container">
+    <p class="copyright">&copy; 2025 <a class="link-footer"
+        href="https://elephant200.github.io/elephantonian">Elephantonian</a>
+    <p>
+  </footer>
+</body>
+
 </html>

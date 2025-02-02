@@ -1,5 +1,5 @@
-
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   display: flex;
@@ -11,11 +11,22 @@ html, body {
   font-style: normal;
 }
 
-header, footer {
+header,
+footer {
   flex-shrink: 0;
   text-align: center;
   padding: 0.5rem 1rem;
   color: #b0b0b0;
+}
+
+::selection {
+  background-color: #4a90e2;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #4a90e2;
+  color: #ffffff;
 }
 
 main {
@@ -65,6 +76,12 @@ p.subheadline {
   color: #e0e0e0;
 }
 
+.error-message {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+}
+
 ul.choice-list {
   list-style: none;
   padding: 0;
@@ -103,14 +120,38 @@ footer {
 }
 
 .ending {
-  margin: 1rem 0;
-  padding: 1rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
   background-color: #4a90e2;
   color: white;
   font-size: 1.2rem;
   text-align: center;
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.link-title {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.link-title:hover {
+  color: #b0b0b0;
+}
+
+.link-footer {
+  text-decoration: none;
+  color: #b0b0b0;
+}
+
+.link-footer:hover {
+  color: #909090;
+}
+
+p.copyright {
+  font-size: 1rem;
+  text-align: center;
+  color: #b0b0b0;
 }
 
 @media (max-width: 768px) {

@@ -1,95 +1,277 @@
 {
-    "keyPages": ["page4", "page5", "page7"],
-
-    "page1": {
-        "text": "As the sun sets, you and your herd wander through the dense forest when you stumble upon a hidden castle shrouded in vines. The castle gates are slightly ajar, as though inviting you to step inside. The air feels heavy with mystery, and a faint light flickers in one of the castle windows. What will you do?",
-        "choices": [
-            {"text": "Enter the castle cautiously", "route": "page2"},
-            {"text": "Circle the castle and look for another entrance", "route": "page3"}
-        ]
+    "keyPages": ["3", "6", "9", "10", "15", "20", "25"],
+  
+    "1": {
+      "text": "As the sun dips below the horizon, your herd quietly pads through the forest. Suddenly, you spot a hidden cave entrance tangled in vines. A faint glow pulses from deep within. Will you step inside?",
+      "choices": [
+        {"text": "Enter the cave cautiously", "route": "page?id=2"},
+        {"text": "Circle around for another entrance", "route": "page?id=3"}
+      ]
     },
-    "page2": {
-        "text": "You push the gates open and step into the grand hallway. The walls are adorned with ancient tapestries of elephants in battle. A faint sound echoes from deeper within the castle, and you notice a strange glimmer under a fallen statue nearby. Do you investigate the glimmer or follow the sound?",
-        "choices": [
-            {"text": "Investigate the glimmer", "route": "page4"},
-            {"text": "Follow the sound", "route": "page5"}
-        ]
+  
+    "2": {
+      "text": "Inside, a damp chill clings to the walls, where strange symbols shimmer faintly. You hear rushing water ahead, while to your left, a narrow tunnel winds deeper underground.",
+      "choices": [
+        {"text": "Follow the sound of water", "route": "page?id=4"},
+        {"text": "Head down the narrow tunnel", "route": "page?id=5"}
+      ]
     },
-    "page3": {
-        "text": "Circling the castle, you find a narrow tunnel partially hidden by foliage. Crawling through, you enter a small library. Dusty bookshelves line the walls, and a desk sits in the center of the room. On the desk lies an ornate key, glinting faintly. Do you take the key or leave it alone?",
-        "choices": [
-            {"text": "Take the key", "route": "key-collected"},
-            {"text": "Leave the key", "route": "page6"}
-        ]
+  
+    "3": {
+      "text": "Skirting around the cave, you find a low, half-hidden passage. Squeezing through, you enter a cramped chamber. A stone pedestal in the center holds a metal key that gleams in the torchlight. Do you take it?",
+      "text_unlocked": "Skirting around the cave, you find a low, half-hidden passage. Squeezing through, you enter a cramped chamber. It feels familiar... have you been here before? There is an empty stone pedestal in the center. Oh! This was where you found the key.",
+      "choices": [
+        {"text": "Take the key", "route": "page?id=key"},
+        {"text": "Leave it there", "route": "page?id=6"}
+      ],
+      "choices_unlocked": [
+        {"text": "Proceed through the cave", "route": "page?id=6"}
+      ]
     },
-    "key-collected": {
-        "text": "You take the key, feeling its cool metal in your trunk. As you hold it, you sense a shift in the air—a soft whisper seems to echo, 'The path ahead is now unlocked.' You return to the main hall, where new possibilities await.",
-        "choices": [
-            {"text": "Return to the main hall", "route": "page2"}
-        ]
+  
+    "key": {
+      "text": "You take the key, feeling its cold metal against your trunk. An odd hush falls over the chamber, as though the cave itself is watching. You head back to the main cavern.",
+      "choices": [
+        {"text": "Return to the main cavern", "route": "page?id=2"}
+      ]
     },
-    "page4": {
-        "text": "Beneath the fallen statue, you find an ancient inscription and a hollow compartment. The compartment is locked, and it appears to need a key. Do you continue searching for the key or abandon the compartment?",
-        "text_unlocked": "Beneath the fallen statue, you find an ancient inscription and a hollow compartment. The compartment is locked, but you have a key! You slide it in, and it clicks. You find a gold sculpture of an elephant. It's an old, ancient work of art! You're ecstatic. Your herd leaves the castle, pleased with its discovery.",
-        "choices": [
-            {"text": "Search for the key", "route": "page3"},
-            {"text": "Abandon the compartment", "route": "page5"}
-        ],
-        "choices_unlocked": [
-            {"text": "Start over", "route": "page1"}
-        ],
-        "ending": "You have won with a good ending."
+  
+    "4": {
+      "text": "You follow the echoing sound of water until you reach an underground river. The current churns fiercely. A battered wooden raft bobs by the bank, tied to a slippery rock. A warning sign reads, 'Travel at your own risk.'",
+      "choices": [
+        {"text": "Board the raft", "route": "page?id=7"},
+        {"text": "Search for another way around", "route": "page?id=8"}
+      ]
     },
-    "page5": {
-        "text": "You follow the sound deeper into the castle and come upon a grand ballroom. The floor is cracked, and you see a box in the corner, but it's locked. Perhaps there’s more to this room than meets the eye.",
-        "text_unlocked": "You follow the sound deeper into the castle and come upon a grand ballroom. The floor is cracked, and a golden chalice sits on a pedestal in the center. As you approach, the chalice begins to glow brightly, revealing a hidden staircase beneath it.",
-        "choices": [
-            {"text": "Investigate further", "route": "page6"},
-            {"text": "Go back the way you came", "route": "page2"}
-        ],
-        "choices_unlocked": [
-            {"text": "Use the key to unlock the staircase", "route": "page7"},
-            {"text": "Leave the ballroom", "route": "page6"}
-        ]
+  
+    "5": {
+      "text": "A twisting tunnel pulls you deeper. The darkness seems alive, pressing in on all sides. Then, a low growl resonates from further ahead, halting you in your tracks.",
+      "choices": [
+        {"text": "Proceed carefully", "route": "page?id=9"},
+        {"text": "Retreat back to the main cavern", "route": "page?id=2"}
+      ]
     },
-    "page6": {
-        "text": "You wander the grand hallway endlessly. The castle seems to shift and twist, leading you in circles. A chilling laugh echoes through the corridors, and you start to wonder if there’s any way out. Do you try to leave or continue exploring?",
-        "choices": [
-            {"text": "Keep exploring", "route": "page_6"},
-            {"text": "Try to leave the castle", "route": "page8"}
-        ]
+  
+    "6": {
+      "text": "Dimly glowing moss crawls over the walls, illuminating a fork in the path. The left route descends sharply, while the right slopes gently upward.",
+      "text_unlocked": "As you enter, you realize there's a small iron door hidden behind a cluster of moss. The dim glow of the moss illuminates a fork in the path. The left route descends sharply, while the right slopes gently upward.",
+      "choices": [
+        {"text": "Touch the glowing moss", "route": "page?id=10"},
+        {"text": "Take the left path downward", "route": "page?id=11"},
+        {"text": "Take the right path upward", "route": "page?id=12"}
+      ],
+      "choices_unlocked": [
+        {"text": "Investigate the iron door", "route": "page?id=9"},
+        {"text": "Take the left path downward", "route": "page?id=11"},
+        {"text": "Take the right path upward", "route": "page?id=12"}
+      ]
     },
-    "page_6": {
-        "text": "You keep exploring the grand hallway. The castle seems to move, leading you around and around. This castle is very strange. You start wondering if you might be here forever... Do you try to leave or continue exploring?",
-        "choices": [
-            {"text": "Investigate further", "route": "page6"},
-            {"text": "Find a way out", "route": "page8"}
-        ]
+  
+    "7": {
+      "text": "You cast off, letting the raft drift on the swift current. Soon, you hear a deafening roar - whitewater rapids, or worse. Clutching the raft, you brace yourself for danger.",
+      "choices": [
+        {"text": "Steer left to avoid the roar", "route": "page?id=13"},
+        {"text": "Steer right, following the current", "route": "page?id=14"}
+      ]
     },
-    "page7": {
-        "text": "The staircase stays stubbornly closed, but while trying, you see a small window that appears to lead to the outside. ",
-        "choices": [
-            {"text": "Go through the window to leave the castle", "route": "page3"},
-            {"text": "Keep exploring the castle", "route": "page6"}
-        ],
-        "text_unlocked": "With the key, the staircase unlocks, revealing a secret passage that leads to a hidden treasure room. Inside, you find ancient artifacts of your elephant ancestors: golden tusk rings, engraved ivory statues, and scrolls filled with forgotten knowledge. You’ve uncovered the castle’s greatest secrets.",
-        "choices_unlocked": [
-            {"text": "Start over", "route": "page1"}
-        ],
-        "ending": "You have won with a good ending."
+  
+    "8": {
+      "text": "You skirt along a side passage, but it narrows into a dead end. Suddenly, the floor trembles and collapses underfoot!",
+      "choices": [
+        {"text": "Scramble back up", "route": "page?id=15"},
+        {"text": "Look for a hidden exit", "route": "page?id=16"}
+      ]
     },
-    "page8": {
-        "text": "As you leave the castle, poachers ambush you and your herd outside. Despite your efforts to defend yourself, their weapons are overwhelming. Tragically, you and your herd perish in the forest.",
-        "choices": [
-            {"text": "Start over", "route": "page1"}
-        ],
-        "ending": "You have lost with a bad ending."
+  
+    "9": {
+      "text": "Stepping closer to the source of the growl, you find a towering stone door carved with images of elephants. A heavy lock is set into the center - clearly needing a key.",
+      "text_unlocked": "Stepping closer to the source of the growl, you find a towering stone door carved with images of elephants. A heavy lock is set into the center - clearly needing a key. Luckily, you have one!",
+      "choices": [
+        {"text": "Return to search for the key", "route": "page?id=1"}
+      ],
+      "choices_unlocked": [
+        {"text": "Use your key to open the stone door", "route": "page?id=17"}
+      ]
     },
-    "page9": {
-        "text": "You decide to hide in the castle, finding a dark alcove. The poachers search for hours but eventually leave, unable to find you. However, the ordeal leaves you shaken, and you decide to leave the castle behind, continuing your journey.",
-        "choices": [
-            {"text": "Start over", "route": "page1"}
-        ],
-        "ending": "You have won with a bittersweet ending."
+  
+    "10": {
+      "text": "You gently press a trunk against the glowing moss. Instantly, your vision blurs, and a wave of nausea hits. You feel disoriented, as though the cave spins around you.",
+      "text_unlocked": "With the key in your possession, you notice a hidden relief carved behind the moss. A small keyhole is embedded within it. Perhaps this moss is more than it appears...",
+      "choices": [
+        {"text": "Fight off the dizziness", "route": "page?id=11"},
+        {"text": "Give in to the sensation", "route": "page?id=18"}
+      ],
+      "choices_unlocked": [
+        {"text": "Use the key on the hidden relief", "route": "page?id=19"}
+      ]
+    },
+  
+    "11": {
+      "text": "The left path leads to a chasm spanned by a precarious stone bridge. Wind howls through the abyss, sending pebbles clattering below.",
+      "choices": [
+        {"text": "Cross the bridge quickly", "route": "page?id=19"},
+        {"text": "Search for a safer crossing", "route": "page?id=20"}
+      ]
+    },
+  
+    "12": {
+      "text": "The right path twists through a forest of towering stone pillars. The silence is oppressive, broken only by the echo of your own steps. You sense a presence tracking you.",
+      "choices": [
+        {"text": "Press forward", "route": "page?id=21"},
+        {"text": "Retreat to the fork", "route": "page?id=6"}
+      ]
+    },
+  
+    "13": {
+      "text": "You manage to steer left, narrowly dodging jagged rocks. The raft jolts to a stop on a shallow bank. Adrenaline still pumps in your veins.",
+      "choices": [
+        {"text": "Disembark and investigate", "route": "page?id=22"}
+      ]
+    },
+  
+    "14": {
+      "text": "Veering right leads straight into a swirling vortex. The raft spins, then vanishes beneath the churning waters. You and your herd are lost to the cave.",
+      "choices": [
+        {"text": "Start over", "route": "page?id=1"}
+      ],
+      "ending": "You have lost."
+    },
+  
+    "15": {
+      "text": "Scrambling up the crumbling ledge, you return to the chamber above. A hint of daylight filters in from somewhere unseen.",
+      "text_unlocked": "With the key in your possession, you notice a small locked crate near the wall. Perhaps it holds supplies - or secrets.",
+      "choices": [
+        {"text": "Try another route", "route": "page?id=6"}
+      ],
+      "choices_unlocked": [
+        {"text": "Open the locked crate", "route": "page?id=23"}
+      ]
+    },
+  
+    "16": {
+      "text": "Feeling your way through the collapsed rubble, you discover a narrow passage sloping upward. Gradually, you emerge near the cave's main entrance once more.",
+      "choices": [
+        {"text": "Try a different way in", "route": "page?id=3"}
+      ]
+    },
+  
+    "17": {
+      "text": "You pass through the unlocked door into a hidden antechamber. Ancient carvings depict a once-flourishing society. Broken artifacts lie scattered among crumbling altars.",
+      "choices": [
+        {"text": "Investigate the carvings", "route": "page?id=23"},
+        {"text": "Gather the artifacts and leave", "route": "page?id=24"}
+      ]
+    },
+  
+    "18": {
+      "text": "The dizziness overwhelms you, and the world spins. When you finally come to, the cave corridors look different - almost reversed.",
+      "choices": [
+        {"text": "Retrace your steps carefully", "route": "page?id=6"},
+        {"text": "Push onward into unknown tunnels", "route": "page?id=25"}
+      ]
+    },
+  
+    "19": {
+      "text": "With unsteady steps, you venture onto the narrow bridge. Cracks appear beneath your weight, and pebbles tumble into the darkness below.",
+      "choices": [
+        {"text": "Rush across before it collapses", "route": "page?id=26"},
+        {"text": "Move inch by inch", "route": "page?id=27"}
+      ]
+    },
+  
+    "20": {
+      "text": "You search for another way to cross the chasm and stumble upon a waterwheel mechanism half-submerged in an underground stream.",
+      "text_unlocked": "Noticing a locked panel on the waterwheel's side, you realize your key might unlock it. Perhaps operating it will change the flow or reveal new paths.",
+      "choices": [
+        {"text": "Turn the wheel by hand", "route": "page?id=28"},
+        {"text": "Ignore it and head back", "route": "page?id=13"}
+      ],
+      "choices_unlocked": [
+        {"text": "Use the key on the locked panel", "route": "page?id=29"}
+      ]
+    },
+  
+    "21": {
+      "text": "Navigating the pillars, faint echoes swirl around you - like distant voices. You can't shake the feeling you're not alone.",
+      "choices": [
+        {"text": "Keep moving forward", "route": "page?id=22"},
+        {"text": "Investigate the strange echoes", "route": "page?id=23"}
+      ]
+    },
+  
+    "22": {
+      "text": "The pillars open onto a cramped chamber where a breeze slips through a narrow crack in the rock, hinting at a possible exit.",
+      "choices": [
+        {"text": "Squeeze through to escape", "route": "page?id=29"},
+        {"text": "Turn back to explore more", "route": "page?id=12"}
+      ]
+    },
+  
+    "23": {
+      "text": "You discover a trove of carvings and relics from a lost elephant civilization. Among them, a golden tusk glimmers enticingly.",
+      "choices": [
+        {"text": "Take the golden tusk", "route": "page?id=24"},
+        {"text": "Leave everything intact", "route": "page?id=25"}
+      ]
+    },
+  
+    "24": {
+      "text": "Once you seize the tusk, a low rumble shakes the ground. Cracks form in the ceiling. Could the cave be collapsing?",
+      "choices": [
+        {"text": "Drop the tusk and flee", "route": "page?id=12"},
+        {"text": "Hold your ground, tusk in trunk", "route": "page?id=30"}
+      ]
+    },
+  
+    "25": {
+      "text": "Resisting the urge to loot the ancient relics, you find a winding corridor leading back toward the entrance. The air grows fresher with each step.",
+      "text_unlocked": "With the key in hand, you also spot a hidden door behind dusty tapestries. A faint click suggests the key might fit here.",
+      "choices": [
+        {"text": "Return to the entrance", "route": "page?id=1"},
+        {"text": "Explore a different fork", "route": "page?id=6"}
+      ],
+      "choices_unlocked": [
+        {"text": "Open the hidden door", "route": "page?id=17"}
+      ]
+    },
+  
+    "26": {
+      "text": "Dashing across, you feel the bridge quake beneath you. You leap to safety just as it collapses into the abyss, sending dust billowing upward.",
+      "choices": [
+        {"text": "Press on into the newly discovered cavern", "route": "page?id=20"}
+      ]
+    },
+  
+    "27": {
+      "text": "You inch forward carefully, but a sudden gust of wind shatters the weakened stone. You plunge into the depths below, landing in churning waters.",
+      "choices": [
+        {"text": "Swim for the shore", "route": "page?id=13"},
+        {"text": "Surrender to the current", "route": "page?id=14"}
+      ]
+    },
+  
+    "28": {
+      "text": "You turn the heavy waterwheel, feeling the mechanism catch. Somewhere in the darkness, stone grinds on stone - something has shifted.",
+      "choices": [
+        {"text": "Investigate the new passage", "route": "page?id=17"},
+        {"text": "Ignore it and move downstream", "route": "page?id=13"}
+      ]
+    },
+  
+    "29": {
+      "text": "With a sudden push, you slip through a crack into open air. You emerge from the cave, shaken but alive, uncertain if you've missed hidden wonders below.",
+      "choices": [
+        {"text": "Re-enter the cave", "route": "page?id=1"},
+        {"text": "Continue your journey elsewhere", "route": "page?id=30"}
+      ]
+    },
+  
+    "30": {
+      "text": "Stepping away from the cave, you and your herd reflect on the trials within. Though mysteries linger in the dark passages you left unexplored, at least you've survived.",
+      "choices": [
+        {"text": "Begin again", "route": "page?id=1"}
+      ],
+      "ending": "You have completed the journey."
     }
-}
+  }
+  

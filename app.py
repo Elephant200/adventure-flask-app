@@ -1,5 +1,7 @@
-from flask import Flask, redirect, render_template, session, url_for
+from flask import Flask, abort, request, render_template, session
+from werkzeug.exceptions import HTTPException, NotFound
 import json
+import traceback
 
 app = Flask(__name__)
 app.secret_key = "elephant"
@@ -7,115 +9,129 @@ app.secret_key = "elephant"
 with open("map.json", "r") as f:
     map = json.load(f)
 
+ERROR_MESSAGES = {
+    # 4xx Client Error Messages
+    400: "The request could not be understood by the server due to malformed syntax.",
+    401: "You need to provide valid authentication credentials.",
+    402: "Access to this resource requires payment.",
+    403: "You don't have permission to access this resource.",
+    404: "The requested URL was not found on this server.",
+    405: "The method used in the request is not allowed for this resource.",
+    406: "The requested resource is not available in a format that is acceptable.",
+    407: "You need to authenticate with the proxy server first.",
+    408: "The server timed out waiting for the request.",
+    409: "The request could not be completed due to a conflict with the current state of the resource.",
+    410: "The resource you are trying to access is no longer available and will not be coming back.",
+    411: "The request is missing a required Content-Length header.",
+    412: "The server rejected the request because a precondition was not met.",
+    413: "The request entity is too large for the server to process.",
+    414: "The requested URL is too long for the server to process.",
+    415: "The request contains an unsupported media type.",
+    416: "The requested range is not satisfiable.",
+    417: "The server cannot meet the expectations set in the Expect request header.",
+    418: "I'm a teapot. Seriously.",
+    421: "The request was misdirected and cannot be handled by this server.",
+    422: "The request was well-formed but could not be processed due to semantic errors.",
+    423: "The resource is locked and cannot be accessed.",
+    424: "The request failed because it depends on another request that failed.",
+    425: "The server is unwilling to process the request because it was sent too early.",
+    426: "The client must upgrade to a different protocol to access this resource.",
+    428: "The request requires a precondition that was not met.",
+    429: "You have sent too many requests in a short period of time. Slow down.",
+    431: "The request headers are too large for the server to process.",
+    451: "The requested resource is unavailable due to legal reasons.",
+    
+    # 5xx Server Error Messages
+    500: "Something went wrong on the server.",
+    501: "The server does not recognize the request method or cannot fulfill it.",
+    502: "The server received an invalid response from an upstream server.",
+    503: "The server is currently unavailable, possibly due to maintenance or overload.",
+    504: "The server did not receive a timely response from an upstream server.",
+    505: "The server does not support the HTTP protocol version used in the request.",
+    506: "The server encountered a variant negotiation error.",
+    507: "The server does not have enough storage space to process the request.",
+    508: "The server detected an infinite loop while processing the request.",
+    510: "The request requires further extensions to be fulfilled.",
+    511: "You need to authenticate with the network before sending the request."
+}
+
 @app.route('/')
 def home_page():
     session["key"] = False
     return render_template("index.html")
 
-@app.route("/<page>")
-def render_story(page):
+@app.route("/page")
+def render_story():
+    page_id = request.args.get("id")
     key_collected = session.get("key", False)
 
-    if page == "key-collected":
+    if page_id == "key":
         session["key"] = True
         session.modified = True
-    if page == "page1":
+    if page_id == "1":
         session["key"] = False
 
-    if page in map:
-        page_data = map[page]
+    if page_id in map:
+        page_data = map[page_id]
 
-        if page in map.get("keyPages", []):
-            content = page_data.get("text_unlocked") if key_collected else page_data.get("text")
-            choices = page_data.get("choices_unlocked") if key_collected else page_data.get("choices")
-            ending = page_data.get("ending", None) if key_collected else None
+        if page_id in map.get("keyPages", []):
+            if key_collected:
+                content = page_data.get("text_unlocked") if key_collected else page_data.get("text")
+                choices = page_data.get("choices_unlocked") if key_collected else page_data.get("choices")
+                ending = page_data.get("ending", None) if key_collected else None
+            else:
+                content = page_data.get("text")
+                choices = page_data.get("choices")
+                ending = None
         else:
             content = page_data.get("text")
             choices = page_data.get("choices")
             ending = page_data.get("ending", None)
-        print(choices)
-
         
         return render_template("page.html", content=content, choices=choices, ending=ending)
     else:
-        return "Page not found", 404
+        raise NotFound()
+    
+
+@app.errorhandler(404)
+def handle_404(e):
+    return handle_all_errors(e)
+
+@app.errorhandler(Exception)
+def handle_all_errors(e):
+    print("Error handler triggered")
+    if isinstance(e, HTTPException):
+        code = e.code
+        name = e.name
+        default_desc = e.description
+    else:
+        code = 500
+        name = "Internal Server Error"
+        default_desc = "An unexpected error occurred."
+
+    extended_message = ERROR_MESSAGES.get(code, default_desc)
+
+    debug_traceback = None
+    if code >= 500 and app.debug:
+        debug_traceback = traceback.format_exc()
+
+    return render_template("error.html", error_code=code, short_message=name, long_message=extended_message, debug_traceback=debug_traceback), code
 
 
+# Error Testing
+@app.route('/error')
+def trigger_error():
+    error_type = request.args.get("type")
 
-# @app.route('/')
-# def page_1():
-#     start_text = """
-#     You’re sitting at your desk during a perfectly ordinary math lesson when, out of nowhere, the
-#     blackboard erupts in a dazzling flash of light. There, resting against the wall, is a shimmering
-#     sword—clearly out of place among the textbooks and chalk dust. Your heart thunders. No one else
-#     in the room seems to notice, as if the sword has cast some sort of invisible cloak over itself,
-#     visible only to you. Do you dare investigate this strange weapon?
-#     """
-#     choices = [
-#         {"text": "Pick up the sword", "route": "page_2"},
-#         {"text": "Call for your teacher's help", "route": "page_3"},
-#     ]
-#     return render_template('page.html', content=start_text, choices=choices)
+    if not error_type or not error_type.isdigit():
+        abort(400)
 
-# @app.route('/page_2')
-# def page_2():
-#     text = """
-#     You wrap your fingers around the sword’s hilt, and a tingling sensation races up your arm,
-#     sending shivers down your spine. The blade hums with unearthly energy, bright runes dancing
-#     along its surface. Almost immediately, the classroom around you starts to shift: one of your
-#     classmates’ shadows twists into a snarling monster, red eyes glowing. This creature is clearly
-#     drawn to the sword’s power. Do you stand your ground, sword at the ready, to battle this
-#     abomination? Or do you drop everything and flee?
-#     """
-#     choices = [
-#         {"text": "Fight the monster", "route": "page_5"},
-#         {"text": "Run in search of help", "route": "page_3"},
-#     ]
-#     return render_template('page.html', content=text, choices=choices)
+    error_code = int(error_type)
 
-# @app.route('/page_3')
-# def page_3():
-#     text = """
-#     You sprint to the teacher’s desk, waving your arms in panic. At first, the teacher is
-#     perplexed—until they see the sword in your hand. Shock washes over their face. “That sword...
-#     it’s cursed!” they exclaim. The teacher insists you hand it over immediately for everyone’s
-#     safety. But something in your gut warns you: what if the teacher is acting under the sword’s
-#     influence, or perhaps something more sinister lies in wait if you let the blade go?
-#     """
-#     choices = [
-#         {"text": "Hand over the sword", "route": "page_4"},
-#         {"text": "Refuse to give up the sword", "route": "page_2"},
-#     ]
-#     return render_template('page.html', content=text, choices=choices)
+    if error_code in range(400, 512):
+        abort(error_code)
+    
+    abort(400)
 
-# @app.route('/page_4')
-# def page_4():
-#     text = """
-#     The moment the teacher touches the sword, a malevolent force crackles through the air. Their
-#     eyes turn pitch-black, and they twist toward you with a horrifying smile. Before you can react,
-#     the cursed sword swings in a vicious arc, and everything goes dark. Your last thought is that
-#     you should have never surrendered the weapon.
-#     <br><br>
-#     <b>Bad Ending: You Have Perished.</b>
-#     """
-#     choices = [
-#         {"text": "Start Over", "route": "/"},
-#     ]
-#     return render_template('page.html', content=text, choices=choices)
-
-
-# @app.route('/page_5')
-# def page_5():
-#     text = """
-#     Steeling your courage, you brandish the glowing sword. The monster snarls, launching itself at
-#     you. Sparks fly as your blade meets the creature’s claws in a furious clash. Drawing on an inner
-#     strength you never knew you had, you thrust the sword forward. The monster disintegrates in a
-#     burst of smoky darkness, leaving only trembling silence in its wake. Your classmates remain
-#     safe, and the haunted sword’s glow softens as if it, too, is finally at peace.
-#     <br><br>
-#     <b>Good Ending: You Emerge Triumphant.</b>
-#     """
-#     choices = [
-#         {"text": "Start Over", "route": "/"},
-#     ]
-#     return render_template('page.html', content=text, choices=choices)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
