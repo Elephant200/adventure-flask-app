@@ -33,10 +33,6 @@ This project is a Flask-based interactive adventure game where players make choi
 
 Feel free to modify the `map.json` file to create new story paths and enhance the existing adventure. The game's structure is highly customizable, allowing you to introduce new characters, events, and settings.
 
-## License
-
-This project is licensed under the MIT License.
-
 ---
 
 Enjoy your adventure as you explore the depths of the cave!
