@@ -4,7 +4,7 @@
 
 # The Elephant Story - Interactive Adventure
 
-This project is a Flask-based interactive adventure game where players make choices that shape their journey through a mysterious cave. Players take on the role of an elephant exploring various paths, discovering hidden treasures, and encountering challenges. See https://elephant-adventure.replit.app to see this app in action.
+This project is a Flask-based interactive adventure game where players make choices that shape their journey through a mysterious cave. Players take on the role of an elephant exploring various paths, discovering hidden treasures, and encountering challenges. Visit https://elephant-adventure.replit.app to see this app in action.
 
 ## Features
 
